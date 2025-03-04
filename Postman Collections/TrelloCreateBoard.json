@@ -188,7 +188,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://api.trello.com/1/boards/632cdc6cff724a00c72ebf70/lists?name=ListthruApi&key=13e8341e4118e2f628179d8ef80b5844&token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b",
+					"raw": "https://api.trello.com/1/boards/632cdc6cff724a00c72ebf70/lists?name=ListthruPostman&key=13e8341e4118e2f628179d8ef80b5844&token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -204,7 +204,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "ListthruApi"
+							"value": "ListthruPostman"
 						},
 						{
 							"key": "key",
