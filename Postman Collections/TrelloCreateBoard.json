@@ -397,18 +397,6 @@
 			"response": []
 		},
 		{
-			"name": "Del Card",
-			"id": "0b11509e-f8f4-49ab-9ebc-68d970dc0d43",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
 			"name": "Delete Card",
 			"id": "c771da95-a699-4c26-9736-e5eb6d66adbe",
 			"protocolProfileBehavior": {
@@ -418,7 +406,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/cards/{id}?key=APIKey&token=APIToken",
+					"raw": "https://api.trello.com/1/cards/67ce236cee36ec43a2612b17?key=13e8341e4118e2f628179d8ef80b5844&token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -428,16 +416,16 @@
 					"path": [
 						"1",
 						"cards",
-						"{id}"
+						"67ce236cee36ec43a2612b17"
 					],
 					"query": [
 						{
 							"key": "key",
-							"value": "APIKey"
+							"value": "13e8341e4118e2f628179d8ef80b5844"
 						},
 						{
 							"key": "token",
-							"value": "APIToken"
+							"value": "4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b"
 						}
 					]
 				},
