@@ -23,7 +23,7 @@ jobs:
         run: newman run collection.json -e environment.json --reporters cli,junit --reporter-junit-export results.xml
 
       - name: Upload Test Report (if needed)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: postman-test-report
           path: results.xml
