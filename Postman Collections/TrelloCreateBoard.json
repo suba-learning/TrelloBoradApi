@@ -580,23 +580,24 @@
 			"response": []
 		},
 		{
-			"name": "Delete Card",
+			"name": "DELETE CARD",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "2cf4a242-c433-48a4-ade0-b06fbb9348fb",
+						"id": "0ef47c86-d9ca-4a2b-9bc7-1f905cef9862",
 						"exec": [
-							"pm.test(\"Response status code is 200\", function () {",
+							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});"
+							"});",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
 					}
 				}
 			],
-			"id": "c771da95-a699-4c26-9736-e5eb6d66adbe",
+			"id": "66cba38a-07ad-4add-825f-622fa03a24aa",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -604,7 +605,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/cards/{firstCardId}}?key=13e8341e4118e2f628179d8ef80b5844&token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1bfirstCardIdfirstCardId",
+					"raw": "https://api.trello.com/1/cards/{{firstCardId}}?key=13e8341e4118e2f628179d8ef80b5844&token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -614,7 +615,7 @@
 					"path": [
 						"1",
 						"cards",
-						"{firstCardId}}"
+						"{{firstCardId}}"
 					],
 					"query": [
 						{
@@ -623,11 +624,10 @@
 						},
 						{
 							"key": "token",
-							"value": "4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1bfirstCardIdfirstCardId"
+							"value": "4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b"
 						}
 					]
-				},
-				"description": "Generated from cURL: curl --request DELETE \\\n  --url 'https://api.trello.com/1/cards/{id}?key=APIKey&token=APIToken'"
+				}
 			},
 			"response": []
 		}
