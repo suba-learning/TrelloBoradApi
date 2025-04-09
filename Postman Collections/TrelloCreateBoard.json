@@ -341,6 +341,43 @@
 		},
 		{
 			"name": "AddCardWithoutName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "85b0c2ec-7b17-4d7a-a265-1e45302811ae",
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response schema validation\", function () {",
+							"  const responseData = pm.response.json();",
+							"",
+							"  pm.expect(responseData).to.be.an('object');",
+							"  pm.expect(responseData.id).to.be.a('string');",
+							"  pm.expect(responseData.name).to.be.a('string');",
+							"  pm.expect(responseData.desc).to.be.a('string');",
+							"  pm.expect(responseData.due).to.be.a('string');",
+							"  pm.expect(responseData.dueComplete).to.be.a('boolean');",
+							"  pm.expect(responseData.idList).to.be.a('string');",
+							"  pm.expect(responseData.idMembers).to.be.an('array');",
+							"  pm.expect(responseData.idLabels).to.be.an('array');",
+							"  pm.expect(responseData.badges).to.be.an('object');",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "368d60e3-83b4-46fd-8ecc-c6539d7936f2",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -386,6 +423,22 @@
 		},
 		{
 			"name": "Addcard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1eedd80e-621c-4f08-96bf-667793dc93e8",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "a818e901-d326-4a42-86b7-41dee616f5cc",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -435,6 +488,46 @@
 		},
 		{
 			"name": "getCardsonList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21e35ea5-0090-471f-b180-ed42cf68cb73",
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Validate the response structure and required fields\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('array');",
+							"    responseData.forEach(function(card) {",
+							"        pm.expect(card).to.be.an('object');",
+							"        pm.expect(card).to.have.property('id').that.is.a('string');",
+							"        pm.expect(card).to.have.property('name').that.is.a('string');",
+							"        pm.expect(card).to.have.property('desc').that.is.a('string');",
+							"        pm.expect(card).to.have.property('due').that.is.a('string');",
+							"        pm.expect(card).to.have.property('idList').that.is.a('string');",
+							"    });",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "1438d12a-48aa-49f9-954d-82998b87efd2",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -472,6 +565,44 @@
 		},
 		{
 			"name": "UpdateCardonlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa2650ae-1bb9-47d0-974f-6339f7267264",
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the response schema for the updated card data\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.id).to.be.a('string');",
+							"    pm.expect(responseData.name).to.be.a('string');",
+							"    pm.expect(responseData.desc).to.be.a('string');",
+							"    pm.expect(responseData.due).to.be.a('string');",
+							"    pm.expect(responseData.dueComplete).to.be.a('boolean');",
+							"    pm.expect(responseData.closed).to.be.a('boolean');",
+							"    pm.expect(responseData.idList).to.be.a('string');",
+							"    pm.expect(responseData.idMembers).to.be.an('array');",
+							"    pm.expect(responseData.labels).to.be.an('array');",
+							"    pm.expect(responseData.shortUrl).to.be.a('string');",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "f45719f8-0bd4-4d1a-87d4-b0793e594300",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -518,6 +649,41 @@
 		},
 		{
 			"name": "Delete Card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2cf4a242-c433-48a4-ade0-b06fbb9348fb",
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the response schema\", function () {",
+							"  const responseData = pm.response.json();",
+							"",
+							"  pm.expect(responseData).to.be.an('object');",
+							"  pm.expect(responseData).to.have.property('id');",
+							"  pm.expect(responseData).to.have.property('name');",
+							"  pm.expect(responseData).to.have.property('desc');",
+							"  pm.expect(responseData).to.have.property('due');",
+							"  pm.expect(responseData).to.have.property('idList');",
+							"  pm.expect(responseData).to.have.property('idMembers');",
+							"  pm.expect(responseData).to.have.property('closed');",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "c771da95-a699-4c26-9736-e5eb6d66adbe",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
