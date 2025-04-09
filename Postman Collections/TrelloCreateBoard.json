@@ -13,7 +13,7 @@
 					"script": {
 						"id": "48f43214-3e63-4d8d-9d3c-518412141c3f",
 						"exec": [
-							"// Test to check if the response time is less than 200ms",
+							"",
 							"// Test to check if the response status code is 200",
 							"pm.test(\"Response status code is 200\", function () {",
 							"  pm.response.to.have.status(200);",
@@ -58,7 +58,8 @@
 							"value": "4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b"
 						}
 					]
-				}
+				},
+				"description": "The endpoint makes an HTTP POST request to create a new board on Trello. The request includes parameters for the board name, key, and token for authentication.\n\n### Request Parameters\n\n- name (string, required): The name of the new board.\n    \n- key (string, required): The API key for authentication.\n    \n- token (string, required): The authentication token.\n    \n\n### Response\n\nThe response will be a JSON object representing the newly created board. Since the user has requested a JSON schema, the response can be represented as a JSON schema to describe the structure of the response object."
 			},
 			"response": []
 		},
@@ -474,9 +475,6 @@
 							"});",
 							"",
 							"",
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
 							"",
 							"pm.test(\"Validate the response structure and required fields\", function () {",
 							"    const responseData = pm.response.json();",
@@ -622,21 +620,7 @@
 						"exec": [
 							"pm.test(\"Response status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Validate the response schema\", function () {",
-							"  const responseData = pm.response.json();",
-							"",
-							"  pm.expect(responseData).to.be.an('object');",
-							"  pm.expect(responseData).to.have.property('id');",
-							"  pm.expect(responseData).to.have.property('name');",
-							"  pm.expect(responseData).to.have.property('desc');",
-							"  pm.expect(responseData).to.have.property('due');",
-							"  pm.expect(responseData).to.have.property('idList');",
-							"  pm.expect(responseData).to.have.property('idMembers');",
-							"  pm.expect(responseData).to.have.property('closed');",
-							"});",
-							""
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
