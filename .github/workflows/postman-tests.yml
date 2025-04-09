@@ -20,7 +20,7 @@ jobs:
         run: npm install -g newman
 
       - name: Run Postman Tests
-        run: newman run collection.json  --reporters cli,junit --reporter-junit-export results.xml
+        run: newman run "Postman Collections/TrelloCreateBoard.json" --reporters cli,junit --reporter-junit-export results.xml
 
       - name: Upload Test Report (if needed)
         uses: actions/upload-artifact@v4
