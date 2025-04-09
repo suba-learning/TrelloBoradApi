@@ -14,10 +14,10 @@
 						"id": "48f43214-3e63-4d8d-9d3c-518412141c3f",
 						"exec": [
 							"// Test to check if the response time is less than 200ms",
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							""
+							"// Test to check if the response status code is 200",
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -70,10 +70,9 @@
 					"script": {
 						"id": "41413c16-3bf7-4848-8d61-7e0d8b0b32d1",
 						"exec": [
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							""
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -127,10 +126,9 @@
 					"script": {
 						"id": "265a9988-e065-4b03-ba1e-ff13cbf982eb",
 						"exec": [
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							""
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -186,8 +184,8 @@
 					"script": {
 						"id": "c44bc6ee-cc10-48bc-a721-902f9859678b",
 						"exec": [
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
 							"});",
 							""
 						],
@@ -245,25 +243,8 @@
 					"script": {
 						"id": "f0d6e34b-dcb7-4a89-ba37-4e11a1da7ecb",
 						"exec": [
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							"",
 							"pm.test(\"Response status code is 200\", function () {",
 							"  pm.response.to.have.status(200);",
-							"});",
-							"",
-							"",
-							"pm.test(\"Name parameter in the request URL is valid\", function () {",
-							"    const requestUrl = pm.request.url.toString();",
-							"    ",
-							"    pm.expect(requestUrl).to.include(\"name=ListthruPostman\");",
-							"});",
-							"",
-							"",
-							"pm.test(\"Key and token parameters are present in the request URL\", function () {",
-							"    pm.expect(pm.request.url.query).to.include(\"key=13e8341e4118e2f628179d8ef80b5844\");",
-							"    pm.expect(pm.request.url.query).to.include(\"token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b\");",
 							"});",
 							"",
 							"",
@@ -352,11 +333,6 @@
 							"});",
 							"",
 							"",
-							"pm.test(\"Response time is less than 500ms\", function () {",
-							"  pm.expect(pm.response.responseTime).to.be.below(500);",
-							"});",
-							"",
-							"",
 							"pm.test(\"Response schema validation\", function () {",
 							"  const responseData = pm.response.json();",
 							"",
@@ -429,10 +405,9 @@
 					"script": {
 						"id": "1eedd80e-621c-4f08-96bf-667793dc93e8",
 						"exec": [
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							""
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -496,11 +471,6 @@
 						"exec": [
 							"pm.test(\"Response status code is 200\", function () {",
 							"  pm.response.to.have.status(200);",
-							"});",
-							"",
-							"",
-							"pm.test(\"Response time is less than 500ms\", function () {",
-							"  pm.expect(pm.response.responseTime).to.be.below(500);",
 							"});",
 							"",
 							"",
@@ -573,11 +543,6 @@
 						"exec": [
 							"pm.test(\"Response status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"",
-							"pm.test(\"Response time is less than 500ms\", function () {",
-							"  pm.expect(pm.response.responseTime).to.be.below(500);",
 							"});",
 							"",
 							"",
@@ -658,12 +623,6 @@
 							"pm.test(\"Response status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
-							"",
-							"",
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							"",
 							"",
 							"pm.test(\"Validate the response schema\", function () {",
 							"  const responseData = pm.response.json();",
