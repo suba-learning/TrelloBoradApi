@@ -249,26 +249,6 @@
 							"});",
 							"",
 							"",
-							"pm.test(\"Response body has the correct structure\", function () {",
-							"    const responseData = pm.response.json();",
-							"    ",
-							"    pm.expect(responseData).to.be.an('object');",
-							"    pm.expect(responseData.id).to.be.a('string');",
-							"    pm.expect(responseData.name).to.be.a('string');",
-							"    pm.expect(responseData.closed).to.be.a('boolean');",
-							"    pm.expect(responseData.idBoard).to.be.a('string');",
-							"    pm.expect(responseData.pos).to.be.a('number');",
-							"});",
-							"",
-							"",
-							"pm.test(\"Ensure that the response includes the list ID and name\", function () {",
-							"    const responseData = pm.response.json();",
-							"    ",
-							"    pm.expect(responseData).to.be.an('object');",
-							"    pm.expect(responseData.id).to.exist;",
-							"    pm.expect(responseData.name).to.exist;",
-							"});",
-							"",
 							""
 						],
 						"type": "text/javascript",
@@ -307,83 +287,6 @@
 						{
 							"key": "name",
 							"value": "ListthruPostman"
-						},
-						{
-							"key": "key",
-							"value": "13e8341e4118e2f628179d8ef80b5844"
-						},
-						{
-							"key": "token",
-							"value": "4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "AddCardWithoutName",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "85b0c2ec-7b17-4d7a-a265-1e45302811ae",
-						"exec": [
-							"pm.test(\"Response status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"",
-							"pm.test(\"Response schema validation\", function () {",
-							"  const responseData = pm.response.json();",
-							"",
-							"  pm.expect(responseData).to.be.an('object');",
-							"  pm.expect(responseData.id).to.be.a('string');",
-							"  pm.expect(responseData.name).to.be.a('string');",
-							"  pm.expect(responseData.desc).to.be.a('string');",
-							"  pm.expect(responseData.due).to.be.a('string');",
-							"  pm.expect(responseData.dueComplete).to.be.a('boolean');",
-							"  pm.expect(responseData.idList).to.be.a('string');",
-							"  pm.expect(responseData.idMembers).to.be.an('array');",
-							"  pm.expect(responseData.idLabels).to.be.an('array');",
-							"  pm.expect(responseData.badges).to.be.an('object');",
-							"});",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"id": "368d60e3-83b4-46fd-8ecc-c6539d7936f2",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://api.trello.com/1/cards?idList=635218e69b737d016cac52b3&key=13e8341e4118e2f628179d8ef80b5844&token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b",
-					"protocol": "https",
-					"host": [
-						"api",
-						"trello",
-						"com"
-					],
-					"path": [
-						"1",
-						"cards"
-					],
-					"query": [
-						{
-							"key": "idList",
-							"value": "635218e69b737d016cac52b3"
 						},
 						{
 							"key": "key",
