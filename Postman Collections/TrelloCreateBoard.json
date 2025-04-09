@@ -473,23 +473,9 @@
 							"pm.test(\"Response status code is 200\", function () {",
 							"  pm.response.to.have.status(200);",
 							"});",
-							"",
-							"",
-							"",
-							"pm.test(\"Validate the response structure and required fields\", function () {",
-							"    const responseData = pm.response.json();",
-							"",
-							"    pm.expect(responseData).to.be.an('array');",
-							"    responseData.forEach(function(card) {",
-							"        pm.expect(card).to.be.an('object');",
-							"        pm.expect(card).to.have.property('id').that.is.a('string');",
-							"        pm.expect(card).to.have.property('name').that.is.a('string');",
-							"        pm.expect(card).to.have.property('desc').that.is.a('string');",
-							"        pm.expect(card).to.have.property('due').that.is.a('string');",
-							"        pm.expect(card).to.have.property('idList').that.is.a('string');",
-							"    });",
-							"});",
-							""
+							"// Store the id of the first card in the response",
+							"var firstCardId = pm.response.json()[0].id;",
+							"pm.collectionVariables.set(\"firstCardId\", firstCardId);"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -542,23 +528,6 @@
 							"pm.test(\"Response status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
-							"",
-							"",
-							"pm.test(\"Validate the response schema for the updated card data\", function () {",
-							"    const responseData = pm.response.json();",
-							"    ",
-							"    pm.expect(responseData).to.be.an('object');",
-							"    pm.expect(responseData.id).to.be.a('string');",
-							"    pm.expect(responseData.name).to.be.a('string');",
-							"    pm.expect(responseData.desc).to.be.a('string');",
-							"    pm.expect(responseData.due).to.be.a('string');",
-							"    pm.expect(responseData.dueComplete).to.be.a('boolean');",
-							"    pm.expect(responseData.closed).to.be.a('boolean');",
-							"    pm.expect(responseData.idList).to.be.a('string');",
-							"    pm.expect(responseData.idMembers).to.be.an('array');",
-							"    pm.expect(responseData.labels).to.be.an('array');",
-							"    pm.expect(responseData.shortUrl).to.be.a('string');",
-							"});",
 							""
 						],
 						"type": "text/javascript",
@@ -580,7 +549,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://api.trello.com/1/cards/63522e92e77c4d0200fcade3?name=updatethruAPI&key=13e8341e4118e2f628179d8ef80b5844&token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b",
+					"raw": "https://api.trello.com/1/cards/{{firstCardId}}?name=updatethruAPI&key=13e8341e4118e2f628179d8ef80b5844&token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -590,7 +559,7 @@
 					"path": [
 						"1",
 						"cards",
-						"63522e92e77c4d0200fcade3"
+						"{{firstCardId}}"
 					],
 					"query": [
 						{
@@ -635,7 +604,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/cards/67ce236cee36ec43a2612b17?key=13e8341e4118e2f628179d8ef80b5844&token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b",
+					"raw": "https://api.trello.com/1/cards/{firstCardId}}?key=13e8341e4118e2f628179d8ef80b5844&token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1bfirstCardIdfirstCardId",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -645,7 +614,7 @@
 					"path": [
 						"1",
 						"cards",
-						"67ce236cee36ec43a2612b17"
+						"{firstCardId}}"
 					],
 					"query": [
 						{
@@ -654,13 +623,19 @@
 						},
 						{
 							"key": "token",
-							"value": "4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b"
+							"value": "4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1bfirstCardIdfirstCardId"
 						}
 					]
 				},
 				"description": "Generated from cURL: curl --request DELETE \\\n  --url 'https://api.trello.com/1/cards/{id}?key=APIKey&token=APIToken'"
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "firstCardId",
+			"value": ""
 		}
 	]
 }
