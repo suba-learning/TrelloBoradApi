@@ -2,11 +2,28 @@
 	"info": {
 		"_postman_id": "1fd05802-52a8-43d9-a37b-4ce76d333b1f",
 		"name": "Trello",
-		"schema": "https://schema.postman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "createBoard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48f43214-3e63-4d8d-9d3c-518412141c3f",
+						"exec": [
+							"// Test to check if the response time is less than 200ms",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "e2a4798c-48fb-40a3-bf17-bbc1172da9aa",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -47,6 +64,22 @@
 		},
 		{
 			"name": "GetBoards",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41413c16-3bf7-4848-8d61-7e0d8b0b32d1",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "e69e7be0-a241-40a5-9848-314a9844ba58",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -88,6 +121,22 @@
 		},
 		{
 			"name": "GetcardsofaBoard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "265a9988-e065-4b03-ba1e-ff13cbf982eb",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "f26aebd1-9cc4-479b-81df-9d2124307294",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -131,6 +180,22 @@
 		},
 		{
 			"name": "GetListsofaBoard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c44bc6ee-cc10-48bc-a721-902f9859678b",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "ff388360-adeb-4016-bfa3-e275361d238a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -174,6 +239,61 @@
 		},
 		{
 			"name": "AddListtoBoard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f0d6e34b-dcb7-4a89-ba37-4e11a1da7ecb",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Name parameter in the request URL is valid\", function () {",
+							"    const requestUrl = pm.request.url.toString();",
+							"    ",
+							"    pm.expect(requestUrl).to.include(\"name=ListthruPostman\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Key and token parameters are present in the request URL\", function () {",
+							"    pm.expect(pm.request.url.query).to.include(\"key=13e8341e4118e2f628179d8ef80b5844\");",
+							"    pm.expect(pm.request.url.query).to.include(\"token=4aaf5eadd048b395580b2924a7e8484cec282e6e39ef2fb873c231aeecff0d1b\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response body has the correct structure\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.id).to.be.a('string');",
+							"    pm.expect(responseData.name).to.be.a('string');",
+							"    pm.expect(responseData.closed).to.be.a('boolean');",
+							"    pm.expect(responseData.idBoard).to.be.a('string');",
+							"    pm.expect(responseData.pos).to.be.a('number');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Ensure that the response includes the list ID and name\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.id).to.exist;",
+							"    pm.expect(responseData.name).to.exist;",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "5ebe17dd-e3ae-44e8-8897-5675004615c9",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
